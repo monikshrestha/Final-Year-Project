@@ -80,7 +80,7 @@ class Map extends React.Component {
           showsUserLocation={true}
           showsMyLocationButton={true}
           initialRegion={this.state.initialregion}
-          // onRegionChangeComplete={this.onChangeValue}
+          onRegionChangeComplete={this.onChangeValue}
           ref={(ref) => (this.map = ref)}
         />
       </View>
