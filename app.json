@@ -20,6 +20,9 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.monik.sajilo",
+      "versionCode": 1,
+      
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
