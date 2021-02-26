@@ -18,17 +18,29 @@ db.connect((err) => {
   else console.log("DB conenction failed");
 });
 
+
+// app.get("/support", (req, res) => {
+
+// });
+
+
+// Viewing the tables from app feedback
 app.get('/support', (req, res) => {
-  db.query('SELECT * FROM app_feedback', (err, row, fields) => {
-    if (!err) console.log(row);
+  db.query('SELECT * FROM app_feedback', (err, row) => {
+    if (!err) res.send(row);
     else console.log(err);
   });
 });
 
-app.get("/support", (req, res) => {
-    
-});
+// Deleting the ID from app feedback
+app.delete('/support/:id', (req, res) => {
+    db.query('DELETE FROM app_feedback WHERE fedID =?',[req.params.id], (err, row, fields) => {
+      if (!err) res.send('deleted sucessfully');
+      else console.log(err);
+    });
+  });
 
+// Inserting Value in the database
 // app.get("/support", (req, res) => {
 //   const sqlInsert ="INSERT INTO app_feedback (fedName, fedEmail, fedfedback) VALUES ('Monik', 'test@gmail.com', 'it works')";
 //   db.query(sqlInsert, (err, row) => {
@@ -36,6 +48,8 @@ app.get("/support", (req, res) => {
 //     else console.log(err);
 //   });
 // });
+
+
 
 app.listen(3001, () => {
   console.log("Running on the port: 3001");
