@@ -26,11 +26,7 @@ app.get('/support', (req, res) => {
 });
 
 app.get("/support", (req, res) => {
-  const sqlInsert ="INSERT INTO app_feedback (fedName, fedEmail, fedfedback) VALUES ('Monik', 'test@gmail.com', 'it works')";
-  db.query(sqlInsert, (err, row) => {
-    if (!err) console.log(row);
-    else console.log(err);
-  });
+    
 });
 
 // app.get("/support", (req, res) => {
