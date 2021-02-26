@@ -19,7 +19,6 @@ class Map extends React.Component {
       marginBottom : 1,
     }
   }
-
   componentDidMount(){
     this.handleUserLocation();
     setTimeout(()=>this.setState({marginBottom: 0}),100)
