@@ -12,6 +12,7 @@ import { Axios } from "axios";
 import styles from "./styles";
 
 export default function UserSupportScreen({ navigation }) {
+
   const [fullname, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [feedback, setFeedback] = useState('');
@@ -33,19 +34,19 @@ export default function UserSupportScreen({ navigation }) {
           <View style={styles.name}>
             <Text style={styles.subhead}>Full Name</Text>
             <TextInput
-              name={fullname}
               style={styles.inputBox}
+              placeholder="Type your Full Name"
               onChange={(e) => {
                 setFullName(e.target.value);
-              }}
+              }}    
             />
           </View>
 
           <View style={styles.email}>
             <Text style={styles.subhead}>E-mail</Text>
             <TextInput
-              name={email}
               style={styles.inputBox}
+              placeholder="abc@abc.com"
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
@@ -55,7 +56,6 @@ export default function UserSupportScreen({ navigation }) {
           <View style={styles.feedback}>
             <Text style={styles.subhead}>Feedback</Text>
             <TextInput
-              name={feedback}
               style={styles.inputBox3}
               onChange={(e) => {
                 setFeedback(e.target.value);
