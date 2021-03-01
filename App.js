@@ -14,6 +14,7 @@ import ContentSupport from "./components/ContentNavigation/ContentSupport";
 import ContentRoute from "./components/ContentNavigation/ContentRoute";
 
 import RootStackScreen from "./components/RootStackScreen";
+import UserSupportScreen from "./components/HomePage/UserDrawer/UserSupport/UserSupportScreen";
 
 const Drawer = createDrawerNavigator();
 
@@ -29,6 +30,8 @@ export default function App() {
         <Drawer.Screen name="Support" component={ContentSupport} />
       </Drawer.Navigator>
     </NavigationContainer>
+
+    // <UserSupportScreen/>
   );
 }
 
