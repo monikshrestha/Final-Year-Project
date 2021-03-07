@@ -49,7 +49,7 @@ export default class App extends React.Component {
 
   async getDirections(startLoc, desLoc) {
     try {
-      const resp = await fetch(`https://maps.googleapis.com/maps/api/directions/json?origin=${startLoc}&destination=${desLoc}&key=AIzaSyBdW-s0WNyRq2eEbXPaOM0TfJb3YhrOp8I`)
+      const resp = await fetch(`https://maps.googleapis.com/maps/api/directions/json?origin=${startLoc}&destination=${desLoc}&key=AIzaSyDzwiVNN5eFsj_b70kJdwl_lezkomy23mo`)
       const respJson = await resp.json();
       const points = Polyline.decode(respJson.routes[0].overview_polyline.points);
       const coords = points.map(point => {
