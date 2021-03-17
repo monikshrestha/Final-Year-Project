@@ -9,7 +9,10 @@ const RouteStack = createStackNavigator();
 const RouteStackScreen = ({ navigation }) => {
   return (
     <RouteStack.Navigator>
-      <RouteStack.Screen name="Route" component={UserRoutes} />
+      <RouteStack.Screen name="Route" component={UserRoutes} 
+            options={{
+              title: "Bus Routes",
+            }} />
     </RouteStack.Navigator>
   );
 };

@@ -2,9 +2,7 @@ import React from "react";
 import { View } from "react-native";
 
 import {
-  Avatar,
   Title,
-  Caption,
   Drawer,
 } from "react-native-paper";
 
@@ -21,15 +19,8 @@ export function DrawerContent(props) {
         <View style={styles.drawerContent}>
           <View style={styles.userInfoSection}>
             <View style={{ flexDirection: "row", marginTop: 15 }}>
-              <Avatar.Image
-                source={{
-                  uri: "https://api.adorable.io/avatars/50/abott@adorable.png",
-                }}
-                size={50}
-              />
-              <View style={{ marginLeft: 15, flexDirection: "column" }}>
-                <Title style={styles.title}>John Doe</Title>
-                <Caption style={styles.caption}>@j_doe</Caption>
+              <View style={{flexDirection: "column" }}>
+                <Title style={styles.title}>Hi (Your Name) !</Title>
               </View>
             </View>
           </View>
@@ -51,16 +42,6 @@ export function DrawerContent(props) {
               label="Profile"
               onPress={() => {
                 props.navigation.navigate("Profile");
-              }}
-            />
-
-            <DrawerItem
-              icon={({ color, size }) => (
-                <Icon name="alert-circle" color={color} size={size} />
-              )}
-              label="Updates"
-              onPress={() => {
-                props.navigation.navigate("Update");
               }}
             />
 

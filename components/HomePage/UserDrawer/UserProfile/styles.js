@@ -24,10 +24,11 @@ titleBar: {
 },
 
 profileImage: {
-    width: 200,
-    height: 200,
-    borderRadius: 100,
+    width: 150,
+    height: 150,
+    borderRadius: 10,
     overflow: "hidden",
+    alignItems:"center",
 },
 
 bar:{

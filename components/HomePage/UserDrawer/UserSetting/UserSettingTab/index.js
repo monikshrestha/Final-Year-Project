@@ -25,6 +25,17 @@ export default function UserSettingTab({ navigation }) {
             <TouchableOpacity
               style={styles.box}
               onPress={() => {
+                navigation.navigate("Terms");
+              }}
+            >
+              <View style={styles.notification}>
+                <Text style={styles.text}>Terms & Conditions</Text>
+              </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.box}
+              onPress={() => {
                 navigation.navigate("Privacy");
               }}
             >

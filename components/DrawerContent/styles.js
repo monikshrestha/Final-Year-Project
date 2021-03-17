@@ -12,15 +12,9 @@ const styles = StyleSheet.create({
 
       title: {
         fontSize: 16,
-        marginTop: 3,
+        marginTop: 6,
         fontWeight: 'bold',
       },
-
-      caption: {
-        fontSize: 14,
-        lineHeight: 14,
-      },
-
 
       drawerSection: {
         marginTop: 15,
