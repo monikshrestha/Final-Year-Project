@@ -30,7 +30,7 @@ export default class DriverHome extends React.Component {
           },
         };
 
-    const coordinate = new MapView.AnimatedRegion({
+    const coordinate = this.setState({
       latitude: driver.location.latitude,
       longitude: driver.location.longitude,
     });
