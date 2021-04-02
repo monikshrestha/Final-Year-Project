@@ -1,19 +1,10 @@
 import React from "react";
 import {
   Image,
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-  Button,
-  TouchableOpacity,
-  Dimensions,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
-import MapView from "react-native-maps";
+import MapView, { MapViewAnimated } from "react-native-maps";
 
 export default class DriverHome extends React.Component {
   constructor(props) {
@@ -25,12 +16,10 @@ export default class DriverHome extends React.Component {
           location: {
             latitude: 0,
             longitude: 0,
-            latitudeDelta: 0,
-            longiDelta: 0,
-          },
-        };
+          }
+        }
 
-    const coordinate = this.setState({
+    const coordinate = ({
       latitude: driver.location.latitude,
       longitude: driver.location.longitude,
     });
@@ -43,7 +32,7 @@ export default class DriverHome extends React.Component {
 
   render() {
     return (
-      <MapView.Marker.Animated
+      <MapView.Marker
         coordinate={this.state.coordinate}
         anchor={{ x: 0.35, y: 0.32 }}
         ref={marker => {
@@ -53,13 +42,13 @@ export default class DriverHome extends React.Component {
         
       >
         <Image
-          source={require("../../../assets/deck.png")}
+          source={require("../../../assets/bus1.png")}
           style={{
-            width: 32,
-            height: 32,
+            width: 35,
+            height: 35,
           }}
         />
-      </MapView.Marker.Animated>
+      </MapView.Marker>
     );
   }
 }

@@ -89,7 +89,7 @@ export default class App extends React.Component {
   renderMarkers = () => {
     const { locations } = this.state;
     return (
-      <View>
+      <View style={StyleSheet.absoluteFillObject}>
         {locations.map((location, idx) => {
           const {
             coords: { latitude, longitude },
@@ -109,10 +109,9 @@ export default class App extends React.Component {
   render() {
     const { time, coords, distance, latitude, longitude } = this.state;
 
-    if (latitude) {
-      return (
-        <View style={StyleSheet.absoluteFillObject}>
-          <MapView
+      return (     
+        <MapView
+          style={StyleSheet.absoluteFillObject}
             showsUserLocation
             style={{ flex: 1 }}
             initialRegion={{
@@ -145,14 +144,7 @@ export default class App extends React.Component {
               strokeColor="red"
               coordinates={coords}
             />
-          </MapView>
-        </View>
+        </MapView>
       );
     }
-    return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>We need your permission!</Text>
-      </View>
-    );
-  }
 }

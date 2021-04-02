@@ -11,7 +11,7 @@ class MapHome extends React.Component {
       region: {
         latitude: 27.7215,
         longitude: 85.32,
-        latitudeDelta: 0.09,
+        latitudeDelta: 0.091,
         longitudeDelta: 0.0921,
       },
       locationChosen: false,
@@ -56,17 +56,17 @@ class MapHome extends React.Component {
           showsMyLocationButton={true}
           rotateEnabled={true}
           initialRegion={this.state.region}
-          ref ={ref => this.map =ref}
+          ref ={(map) => this.map = map}
         >
-          {/* <DriverHome
+          <DriverHome
             driver={{
-              uid: "null",
+              uid: "hello",
               location: {
-                latitude: 27.7215,
+                latitude: 27.7350,
                 longitude: 85.32,
               },
             }}
-          /> */}
+          />
         </MapView>
       </View>
     );
