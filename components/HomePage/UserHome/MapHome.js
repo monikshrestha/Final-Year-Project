@@ -11,8 +11,8 @@ class MapHome extends React.Component {
       region: {
         latitude: 27.7215,
         longitude: 85.32,
-        latitudeDelta: 0.091,
-        longitudeDelta: 0.0921,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421,
       },
       locationChosen: false,
       marginBottom: 1,
@@ -111,33 +111,4 @@ export default MapHome;
 //   setTimeout(() => this.setState({ marginBottom: 0 }), 400);
 // }
 
-// handleUserLocation = () => {
-//   navigator.geolocation.getCurrentPosition(
-//     (pos) => {
-//       // alert (JSON.stringify(pos))
-//       this.map.animateToRegion({
-//         ...this.state.region,
-//         latitude: pos.coords.latitude,
-//         longitude: pos.coords.longitude,
-//       });
 
-//       this.setState({region:region,
-//         locationChosen: true,
-//       });
-//     },
-//     (err) => {
-//       console.log(err);
-//       alert("Something Went Wrong!");
-//     }
-//   );
-// };
-
-// let location = await Location.getCurrentPositionAsync({enabledHighAccuracy: true});
-
-// let region={
-//   latitude: location.coords.latitude,
-//   longitude: location.coords.longitude,
-//   latitudeDelta: 0.09,
-//   longitudeDelta: 0.0921,
-// }
-// this.setState({region:region})

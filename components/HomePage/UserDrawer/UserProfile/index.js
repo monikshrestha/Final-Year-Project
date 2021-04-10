@@ -32,39 +32,42 @@ export default function UserProfile({ navigation }) {
           </Text>
         </View>
 
-        <View style={styles.bar}>
 
-          <TouchableOpacity
-            style={[
-              styles.box,
-              {
-                borderColor: "#DFD8C8",
-                borderRightWidth: 1,
-              },
-            ]}
-            onPress={() => {
-              navigation.navigate("My Whereabouts");
-            }}
-          >
-            <View style={styles.location}>
-            <Icon name="home-outline"  size={24}/>
-              <Text style={styles.text}>Location</Text>
-            </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.box}
-            onPress={() => {
-              navigation.navigate("Setting");
-            }}
-          >
-            <View style={styles.settings}>
-            <Icon name="account-check-outline"  size={24} />
-              <Text style={styles.text}>Settings</Text>
-            </View>
-          </TouchableOpacity>
-        </View>
       </ScrollView>
     </SafeAreaView>
   );
 }
+
+
+{/* <View style={styles.bar}>
+
+<TouchableOpacity
+  style={[
+    styles.box,
+    {
+      borderColor: "#DFD8C8",
+      borderRightWidth: 1,
+    },
+  ]}
+  onPress={() => {
+    navigation.navigate("My Whereabouts");
+  }}
+>
+  <View style={styles.location}>
+  <Icon name="home-outline"  size={24}/>
+    <Text style={styles.text}>Location</Text>
+  </View>
+</TouchableOpacity>
+
+<TouchableOpacity
+  style={styles.box}
+  onPress={() => {
+    navigation.navigate("Setting");
+  }}
+>
+  <View style={styles.settings}>
+  <Icon name="account-check-outline"  size={24} />
+    <Text style={styles.text}>Settings</Text>
+  </View>
+</TouchableOpacity>
+</View> */}

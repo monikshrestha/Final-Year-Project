@@ -29,25 +29,17 @@ export default function MainScreen({navigation}) {
 
             <StyledButton 
               type="primary"
-              content={"Login as a User"}
+              content={"Login"}
               onPress={() => 
-               navigation.navigate("ScreenUser")  
+               navigation.navigate("Login")  
             }/>      
 
             <StyledButton 
               type="primary"
-              content={"Login as a Driver"}
+              content={"Register"}
               onPress={() => 
-                navigation.navigate("ScreenDriver")
-              }/>      
-
-            <StyledButton 
-              type="secondary"
-              content={"Sign-up"}
-              onPress={() => {
-                navigation.navigate("SignupMain")
-                }
-              }/>      
+                navigation.navigate("Signup")
+              }/>           
 
           </View>
         

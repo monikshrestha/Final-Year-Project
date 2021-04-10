@@ -2,6 +2,7 @@ import React from "react";
 import { Dimensions, StyleSheet, Text, View, Image } from "react-native";
 
 import Polyline from "@mapbox/polyline";
+import Axios from 'axios';
 
 import MapView, { Marker } from "react-native-maps";
 
@@ -24,7 +25,7 @@ export default class App extends React.Component {
 
     const {
       locations: [sampleLocation],
-    } = this.state;
+    } = this.state
 
     this.setState(
       {
@@ -32,11 +33,11 @@ export default class App extends React.Component {
         desLongitude: sampleLocation.coords.longitude,
       },
       this.mergeCoords
-    );
+    )
   }
 
   mergeCoords = () => {
-    const { latitude, longitude, desLatitude, desLongitude } = this.state;
+    const { latitude, longitude, desLatitude, desLongitude } = this.state
 
     const hasStartAndEnd = latitude !== null && desLatitude !== null;
 
@@ -49,10 +50,11 @@ export default class App extends React.Component {
 
   async getDirections(startLoc, desLoc) {
     try {
-      const resp = await fetch(
-        `https://maps.googleapis.com/maps/api/directions/json?origin=${startLoc}&destination=${desLoc}&key=AIzaSyDe_cLrUFFrFTglZbCExNBYJL80lEbzECI`
-      );
-      const respJson = await resp.json();
+      const respJson= Axios.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${startLoc}&destination=${desLoc}&key=AIzaSyDe_cLrUFFrFTglZbCExNBYJL80lEbzECI`).then(res=> console.log(res))
+      // const resp = await fetch(
+      //   `https://maps.googleapis.com/maps/api/directions/json?origin=${startLoc}&destination=${desLoc}&key=AIzaSyDe_cLrUFFrFTglZbCExNBYJL80lEbzECI`
+      // );
+      // const respJson = await resp.json();
       const response = respJson.routes[0];
       const distanceTime = response.legs[0];
       const distance = distanceTime.distance.text;
@@ -66,16 +68,16 @@ export default class App extends React.Component {
           longitude: point[1],
         };
       });
-      this.setState({ coords, distance, time });
+      this.setState({ coords });
     } catch (error) {
-      console.log("Error: ", error);
+      console.log("Error: ", error)
     }
   }
 
   onMarkerPress = (location) => () => {
     const {
       coords: { latitude, longitude },
-    } = location;
+    } = location
     this.setState(
       {
         destination: location,
@@ -83,11 +85,11 @@ export default class App extends React.Component {
         desLongitude: longitude,
       },
       this.mergeCoords
-    );
+    )
   };
 
   renderMarkers = () => {
-    const { locations } = this.state;
+    const { locations } = this.state
     return (
       <View style={StyleSheet.absoluteFillObject}>
         {locations.map((location, idx) => {
@@ -107,7 +109,13 @@ export default class App extends React.Component {
   };
 
   render() {
-    const { time, coords, distance, latitude, longitude } = this.state;
+    const {
+      time,
+      coords,
+      distance,
+      latitude,
+      longitude
+    } = this.state
 
       return (     
         <MapView
@@ -115,13 +123,13 @@ export default class App extends React.Component {
             showsUserLocation
             style={{ flex: 1 }}
             initialRegion={{
-              latitude,
-              longitude,
+              latitude: 27.7215,
+              longitude: 85.32,
               latitudeDelta: 0.0922,
               longitudeDelta: 0.0421,
             }}
           >
-            <View
+            {/* <View
               style={{
                 width,
                 paddingTop: 10,
@@ -137,7 +145,7 @@ export default class App extends React.Component {
               <Text style={{ fontWeight: "bold" }}>
                 Estimated Distance: {distance}
               </Text>
-            </View>
+            </View> */}
             {this.renderMarkers()}
             <MapView.Polyline
               strokeWidth={2}
