@@ -17,6 +17,7 @@ export default function UserSettingTab({ navigation }) {
         <View style={styles.settings}>
           <View style={styles.profile}>
           <Text style={styles.heading}>Profile</Text>
+          
           </View>
 
           <View style={styles.app}>

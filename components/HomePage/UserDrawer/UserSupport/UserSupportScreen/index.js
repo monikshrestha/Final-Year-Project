@@ -1,7 +1,7 @@
 import React, { useState, Fragment } from "react";
 import {
   StyleSheet,
-  SafeAreaView,
+  ImageBackground,
   View,
   LogBox,
   Keyboard,
@@ -54,7 +54,7 @@ const UserSupportScreen = ({ navigation }) => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <Formik
         initialValues={{
           fedName: "",
@@ -148,14 +148,20 @@ const UserSupportScreen = ({ navigation }) => {
         snackType={snackType}
         setSnackIsVisible={setSnackIsVisible}
       />
-    </SafeAreaView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 20,
+    marginTop:35,
+  },
+  image: {
+    width: "100%",
+    height: "100%",
+    resizeMode: "cover",
+    position: "absolute",
   },
   logoContainer: {
     alignItems: "center",

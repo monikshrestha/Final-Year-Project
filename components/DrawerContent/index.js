@@ -9,10 +9,13 @@ import {
 import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
 
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../redux/Login/login-actions";
 
 import styles from "./styles";
 
 export function DrawerContent(props) {
+  const dispatch = useDispatch();
   return (
     <View style={{ flex: 1 }}>
       <DrawerContentScrollView {...props}>
@@ -73,7 +76,10 @@ export function DrawerContent(props) {
           )}
           label="Sign Out"
           onPress={() => {
-            signOut();
+            dispatch(logout());
+            setTimeout(() => {
+              props.navigation.navigate("Login");
+            }, 1);
           }}
         />
       </Drawer.Section>

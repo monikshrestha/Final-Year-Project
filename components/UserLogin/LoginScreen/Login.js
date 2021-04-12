@@ -1,10 +1,12 @@
 import React, { Fragment, useState } from "react";
 import {
   StyleSheet,
+  SafeAreaView,
   View,
+  TouchableOpacity,
+  ImageBackground,
   LogBox,
   Keyboard,
-  ImageBackground
 } from "react-native";
 import { Button } from "react-native-elements";
 import { Formik } from "formik";
@@ -12,7 +14,8 @@ import * as Yup from "yup";
 import { HideWithKeyboard } from "react-native-hide-with-keyboard";
 import { Surface } from "react-native-paper";
 import axios from "axios";
-// import { use, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { userData as user, authToken } from "../../../redux/Login/login-actions";
 
 import AppLogo from "../../../elements/AppLogo";
 import CustomSnackbar from "../../../elements/CustomSnackbar";
@@ -38,13 +41,13 @@ export default Login = ({ navigation }) => {
   const [snackContent, setSnackContent] = useState("");
   const [snackType, setSnackType] = useState("blue");
 
-  // const dispatch = useDispatch();
-  // const Token = useSelector((state) => state.login.authToken);
-  // const userData = useSelector((state) => state.login.userData);
+  const dispatch = useDispatch();
+  const Token = useSelector((state) => state.login.authToken);
+  const userData = useSelector((state) => state.login.userData);
 
   const goToSignup = () => navigation.navigate("Signup");
 
-  const handleOnLogin = async (values) => {
+  const handleOnLogin = async (values, { resetForm }) => {
     Keyboard.dismiss();
     userAuthenticated();
     axios
@@ -55,32 +58,46 @@ export default Login = ({ navigation }) => {
         setSnackIsVisible(true);
         setTimeout(() => {
           setSnackIsVisible(false);
+          if (res.data.type === "success") {
+            resetForm();
+            navigation.navigate("Home");
+          }
         }, 2500);
-      });
+        if (snackType === "success") {
+          dispatch(user(res.data.result));
+          dispatch(authToken(res.data.token));
+        }
+      })
+      .catch((err) => console.log(err));
   };
+
   const userAuthenticated = async () => {
     await axios
-      .post("/isUserAuth")
+      .post("http://192.168.1.90:3001/isUserAuth")
       .then((response) => {
-        console.log("was here");
-        response.data.auth === true && navigation.navigate("Services");
+        response.data.auth === true && navigation.navigate("Home");
       })
       .catch((err) => console.log(err));
 
-      const Token=axios.defaults.headers.common["authorization"];
-    
+    axios.defaults.headers.common["authorization"] = Token;
   };
 
   return (
     <View style={styles.container}>
-      <ImageBackground 
-            source={require('../../../assets/bus.jpg')}
-            blurRadius={1}
-            style={styles.image}
-          />
+      <ImageBackground
+        source={require("../../../assets/bus.jpg")}
+        blurRadius={1}
+        style={styles.image}
+      />
 
       <Surface
-        style={{ margin: 20, marginTop: 120,padding: 10, elevation: 5, borderRadius: 10 }}
+        style={{
+          margin: 20,
+          marginTop: 120,
+          padding: 10,
+          elevation: 5,
+          borderRadius: 10,
+        }}
       >
         <HideWithKeyboard style={styles.logoContainer}>
           <AppLogo />
@@ -88,9 +105,7 @@ export default Login = ({ navigation }) => {
 
         <Formik
           initialValues={{ email: "", password: "" }}
-          onSubmit={(values) => {
-            handleOnLogin(values);
-          }}
+          onSubmit={handleOnLogin}
           validationSchema={validationSchema}
         >
           {({
@@ -174,9 +189,9 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   image: {
-    width: '100%',
-    height: '100%',
-    resizeMode: 'cover',
-    position: 'absolute', 
+    width: "100%",
+    height: "100%",
+    resizeMode: "cover",
+    position: "absolute",
   },
 });

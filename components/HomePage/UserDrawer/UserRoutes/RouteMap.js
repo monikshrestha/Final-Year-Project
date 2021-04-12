@@ -50,18 +50,18 @@ export default class App extends React.Component {
 
   async getDirections(startLoc, desLoc) {
     try {
-      const respJson= Axios.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${startLoc}&destination=${desLoc}&key=AIzaSyDe_cLrUFFrFTglZbCExNBYJL80lEbzECI`).then(res=> console.log(res))
+      const respJson= Axios.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${startLoc}&destination=${desLoc}&key=AIzaSyDe_cLrUFFrFTglZbCExNBYJL80lEbzECI`).then(data=> console.log('data',data))
       // const resp = await fetch(
       //   `https://maps.googleapis.com/maps/api/directions/json?origin=${startLoc}&destination=${desLoc}&key=AIzaSyDe_cLrUFFrFTglZbCExNBYJL80lEbzECI`
       // );
       // const respJson = await resp.json();
-      const response = respJson.routes[0];
+      const response = data.routes[0];
       const distanceTime = response.legs[0];
       const distance = distanceTime.distance.text;
       const time = distanceTime.duration.text;
-      const points = Polyline.decode(
-        respJson.routes[0].overview_polyline.points
-      );
+      // const points = Polyline.decode(
+      //   respJson.data.route[0].overview_polyline.points
+      // );
       const coords = points.map((point) => {
         return {
           latitude: point[0],

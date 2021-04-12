@@ -6,6 +6,10 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { DrawerContent } from "./components/DrawerContent";
 
+import { Provider } from "react-redux";
+import { store, persistor } from "./redux/store";
+import { PersistGate } from "redux-persist/integration/react";
+
 import ContentProfile from "./components/ContentNavigation/ContentProfile";
 import ContentSupport from "./components/ContentNavigation/ContentSupport";
 import ContentRoute from "./components/ContentNavigation/ContentRoute";
@@ -50,15 +54,19 @@ export default function App() {
   // }, []); // Empty array means it will run only on component mount
 
   return (
+    <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
     <NavigationContainer>
-      {/* <RootStackScreen/> */}
       <Drawer.Navigator drawerContent={(props) => <DrawerContent {...props} />}>
+        <Drawer.Screen name="Login" component={RootStackScreen} />
         <Drawer.Screen name="Home" component={ContentHome} />
         <Drawer.Screen name="Profile" component={ContentProfile} />
         <Drawer.Screen name="Route" component={ContentRoute} />
         <Drawer.Screen name="Support" component={ContentSupport} />
       </Drawer.Navigator>
     </NavigationContainer>
+    </PersistGate>
+    </Provider>
   );
 }
 
