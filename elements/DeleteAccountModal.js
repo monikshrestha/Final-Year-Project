@@ -40,7 +40,7 @@ const DeleteAccountModal = ({ setVisible, visible, userId, navigation }) => {
               onPress={() => {
                 hideModal(true);
                 dispatch(deleteAccount(userId));
-                navigation.navigate("Login");
+                navigation.navigate("MainScreen");
               }}
             >
               Proceed

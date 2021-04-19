@@ -9,7 +9,10 @@ container: {
 settings:{
     padding: "3%",
 },
-
+textdanger:{
+    color:"red",
+    marginBottom: 15,
+},
 heading:{
     fontSize: 17,
     paddingBottom: "2%",

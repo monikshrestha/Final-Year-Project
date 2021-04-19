@@ -59,9 +59,9 @@ export default class App extends React.Component {
       const distanceTime = response.legs[0];
       const distance = distanceTime.distance.text;
       const time = distanceTime.duration.text;
-      // const points = Polyline.decode(
-      //   respJson.data.route[0].overview_polyline.points
-      // );
+      const points = Polyline.decode(
+        respJson.data.route[0].overview_polyline.points
+      );
       const coords = points.map((point) => {
         return {
           latitude: point[0],

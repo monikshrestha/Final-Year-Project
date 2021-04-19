@@ -26,8 +26,8 @@ import ErrorMessage from "../../../elements/ErrorMessage";
 LogBox.ignoreAllLogs();
 
 const validationSchema = Yup.object().shape({
-  fname: Yup.string().label("FName").required("Please enter First Name"),
-  lname: Yup.string().label("LName").required("Please enter Last Name"),
+  fname: Yup.string().label("FName").required("Please enter your First Name"),
+  lname: Yup.string().label("LName").required("Please enter your Last Name"),
   email: Yup.string()
     .label("Email")
     .email("Enter a valid email")
@@ -37,9 +37,9 @@ const validationSchema = Yup.object().shape({
   password: Yup.string()
     .label("Password")
     .required()
-    .min(8, "Password should be at least 8 characters "),
+    .min(8, "Password should be at least 8 characters"),
   confirmPassword: Yup.string()
-    .oneOf([Yup.ref("password")], "Confirm Password must matched Password")
+    .oneOf([Yup.ref("password")], "Passwords doesnot match")
     .required("Confirm Password is required"),
 });
 

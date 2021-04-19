@@ -1,17 +1,19 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import { Ionicons } from '@expo/vector-icons';
+import { Feather, Entypo } from "@expo/vector-icons";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import UserHome from "../../HomePage/UserHome/index";
 const HomeStack = createStackNavigator();
 
 const HomeStackScreen = ({ navigation }) => {
   return (
     <HomeStack.Navigator
-      screenOptions={{
-        headerStyle: {
-          backgroundColor: "white",
-        },
-        headerTintColor: "black",
+    screenOptions={{
+      headerTitleAlign: "center",
+
+      headerLeftContainerStyle: { marginLeft: 30},
+      headerRightContainerStyle: { marginRight: 25},
       }}
     >
       <HomeStack.Screen
@@ -20,11 +22,14 @@ const HomeStackScreen = ({ navigation }) => {
         options={{
           title: "Home",
           headerLeft: () => {
-            <Ionicons.Button
-              name="ios-menu"
-              size={25}
-              onPress={() => navigation.openDrawer()}
-            />
+            <TouchableOpacity>
+              <Icon
+                name="menu"
+                size={24}
+                color="black"
+                onPress={() => navigation.openDrawer()}
+              />
+            </TouchableOpacity>
           },
         }}
       />

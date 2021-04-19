@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
 import { Avatar, Surface } from "react-native-paper";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { StatusBar } from "react-native";
 import { Menu, List } from "react-native-paper";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import {
@@ -14,7 +12,6 @@ import {
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
-import DeleteAccountModal from "../../../../elements/DeleteAccountModal";
 import styles from "./styles";
 
 export default function UserProfile({ navigation }) {
@@ -156,37 +153,8 @@ export default function UserProfile({ navigation }) {
             />
           </Surface>
 
-          <Surface
-            style={{
-              margin: 20,
-              borderRadius: 10,
-              backgroundColor: "red",
-            }}
-          >
-            <TouchableOpacity onPress={() => setVisible(true)}>
-              <List.Item
-                titleStyle={{ color: "white", marginLeft: 15 }}
-                rippleColor="red"
-                title="Delete Account"
-                left={(props) => (
-                  <MaterialIcons
-                    name="delete"
-                    size={25}
-                    color="white"
-                    style={{ marginTop: 4 }}
-                  />
-                )}
-              />
-            </TouchableOpacity>
-          </Surface>
         </View>
       ))}
-      <DeleteAccountModal
-        visible={visible}
-        setVisible={setVisible}
-        userId={[userData.map((item) => item.user_id)]}
-        navigation={navigation}
-      />
     </View>
   );
 }

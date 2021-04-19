@@ -1,23 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
+import { SafeAreaView, ScrollView, View, Text } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import { useDispatch, useSelector } from "react-redux";
 
-import {
-  SafeAreaView,
-  ScrollView,
-  View,
-  Text,
-  TouchableOpacity,
-} from "react-native";
+import DeleteAccountModal from "../../../../../elements/DeleteAccountModal";
 
 import styles from "./styles";
 
 export default function UserSettingTab({ navigation }) {
+  const [visible, setVisible] = useState(false);
+  const dispatch = useDispatch();
+  const userData = useSelector((state) => state.login.userData);
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.settings}>
           <View style={styles.profile}>
-          <Text style={styles.heading}>Profile</Text>
-          
+            <Text style={styles.heading}>Profile</Text>
+
+            <TouchableOpacity
+              style={styles.box}
+              onPress={() => {
+                setVisible(true);
+              }}
+            >
+              <View style={styles.notification}>
+                <Text style={styles.textdanger}>Delete Account</Text>
+              </View>
+            </TouchableOpacity>
           </View>
 
           <View style={styles.app}>
@@ -58,6 +68,12 @@ export default function UserSettingTab({ navigation }) {
           </View>
         </View>
       </ScrollView>
+      <DeleteAccountModal
+        visible={visible}
+        setVisible={setVisible}
+        userId={[userData.map((item) => item.user_id)]}
+        navigation={navigation}
+      />
     </SafeAreaView>
   );
 }

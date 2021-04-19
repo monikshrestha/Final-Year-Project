@@ -58,7 +58,9 @@
     "redux-devtools-extension": "^2.13.9",
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
-    "yup": "^0.32.9"
+    "yup": "^0.32.9",
+    "expo-notifications": "~0.7.2",
+    "expo-constants": "~9.2.0"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0"

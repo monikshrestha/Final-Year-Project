@@ -16,6 +16,7 @@ import styles from "./styles";
 
 export function DrawerContent(props) {
   const dispatch = useDispatch();
+  const userData = useSelector((state) => state.login.userData);
   return (
     <View style={{ flex: 1 }}>
       <DrawerContentScrollView {...props}>
@@ -23,7 +24,7 @@ export function DrawerContent(props) {
           <View style={styles.userInfoSection}>
             <View style={{ flexDirection: "row", marginTop: 15 }}>
               <View style={{flexDirection: "column" }}>
-                <Title style={styles.title}>Hi (Your Name) !</Title>
+              {userData.map((item) => <Title style={styles.title}>Hi  {item.fname} {item.lname}!</Title>)} 
               </View>
             </View>
           </View>

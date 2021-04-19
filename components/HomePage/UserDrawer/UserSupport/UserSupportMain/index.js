@@ -60,7 +60,7 @@ export default function UserSupportMain({ navigation }) {
         <View style={styles.q}>
           <Text style={styles.question}>Is the estimated time exact?</Text>
           <Text style={styles.answer}>
-            Ans: No, It isn't. It depends on the Traffic.
+            Ans: No, It isn't. 
           </Text>
         </View>
 
@@ -69,7 +69,7 @@ export default function UserSupportMain({ navigation }) {
             Do we have to manually input the location?
           </Text>
           <Text style={styles.answer}>
-            Ans: No, you don't. You can use the drop down box as well.
+            Ans: No, you don't. The location are coded by us.
           </Text>
         </View>
 

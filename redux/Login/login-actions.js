@@ -8,9 +8,7 @@ import {
 import axios from "axios";
 
 export const userData = (data) => {
-  alert(data);
-  console.log("here");
-  console.log(data);
+
   return {
     type: USER_DATA,
     payload: data,

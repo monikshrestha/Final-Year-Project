@@ -1,7 +1,5 @@
 import React from "react";
 
-import { AntDesign, Entypo } from "@expo/vector-icons";
-
 import {
   SafeAreaView,
   ScrollView,

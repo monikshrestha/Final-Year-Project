@@ -1,71 +1,55 @@
 import { StyleSheet } from "react-native";
-import React, { useEffect } from "react";
-import { StatusBar, PermissionsAndroid, Platform } from "react-native";
-
-import { NavigationContainer } from "@react-navigation/native";
+import Constants from 'expo-constants';
+import React, {useEffect, useRef,useState} from 'react';
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import { DrawerContent } from "./components/DrawerContent";
-
 import { Provider } from "react-redux";
+import * as Notifications from 'expo-notifications';
+import * as Permissions from 'expo-permissions';
 import { store, persistor } from "./redux/store";
 import { PersistGate } from "redux-persist/integration/react";
+import Navigation from "./Navigation";
 
-import ContentProfile from "./components/ContentNavigation/ContentProfile";
-import ContentSupport from "./components/ContentNavigation/ContentSupport";
-import ContentRoute from "./components/ContentNavigation/ContentRoute";
-import ContentHome from "./components/ContentNavigation/ContentHome";
-import RootStackScreen from "./components/RootStackScreen";
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowAlert: true,
+    shouldPlaySound: false,
+    shouldSetBadge: false,
+  }),
+});
 
 const Drawer = createDrawerNavigator();
 
 export default function App() {
+  const [expoPushToken, setExpoPushToken] = useState('');
+  const [notification, setNotification] = useState(false);
+  const notificationListener = useRef();
+  const responseListener = useRef();
 
-  // const requestLocationPermission = async () => {
-  //   try {
-  //     const granted = await PermissionsAndroid.request(
-  //       PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-  //       {
-  //         title: "Sajilo Yatayat Location Permission",
-  //         message:
-  //           "Sajilo Yatayat needs access to your location " +
-  //           "so you can take awesome rides.",
-  //         buttonNeutral: "Ask Me Later",
-  //         buttonNegative: "Cancel",
-  //         buttonPositive: "OK"
-  //       }
-  //     );
-  //     if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-  //       console.log("You can use the location");
-  //     } else {
-  //       console.log("Location permission denied");
-  //     }
-  //   } catch (err) {
-  //     console.warn(err);
-  //   }
-  // };
+  useEffect(() => {
+    registerForPushNotificationsAsync().then(token => setExpoPushToken(token));
 
-  // useEffect(() => {
-  //   if (Platform.OS === "android") {
-  //       requestLocationPermission();
-  //   } else {
-  //     // IOS
-  //     Geolocation.requestAuthorization();
-  //   }
-  // }, []); // Empty array means it will run only on component mount
+    // This listener is fired whenever a notification is received while the app is foregrounded
+    notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
+      setNotification(notification);
+    });
+
+    // This listener is fired whenever a user taps on or interacts with a notification (works when app is foregrounded, backgrounded, or killed)
+    responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
+      console.log(response);
+    });
+
+    return () => {
+      Notifications.removeNotificationSubscription(notificationListener.current);
+      Notifications.removeNotificationSubscription(responseListener.current);
+    };
+  }, []);
+
 
   return (
     <Provider store={store}>
-    <PersistGate loading={null} persistor={persistor}>
-    <NavigationContainer>
-      <Drawer.Navigator drawerContent={(props) => <DrawerContent {...props} />}>
-        <Drawer.Screen name="Login" component={RootStackScreen} />
-        <Drawer.Screen name="Home" component={ContentHome} />
-        <Drawer.Screen name="Profile" component={ContentProfile} />
-        <Drawer.Screen name="Route" component={ContentRoute} />
-        <Drawer.Screen name="Support" component={ContentSupport} />
-      </Drawer.Navigator>
-    </NavigationContainer>
-    </PersistGate>
+      <PersistGate loading={null} persistor={persistor}>
+        <Navigation/>
+      </PersistGate>
     </Provider>
   );
 }
@@ -78,3 +62,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 });
+
+async function registerForPushNotificationsAsync() {
+
+  token = (await Notifications.getExpoPushTokenAsync()).data;
+  return token
+}
