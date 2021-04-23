@@ -6,10 +6,7 @@
             "latitude": 27.733778,
             "longitude": 85.307834
         }
-
-    },
-
-    {
+    },    {
         "name": "BG Mall",
         "address": "BG Mall, Buspark, Gongabu, Kathmandu",
         "coords":{
@@ -288,4 +285,6 @@
         }
 
     }
+
+
 ]

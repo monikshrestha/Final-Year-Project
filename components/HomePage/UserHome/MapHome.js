@@ -18,52 +18,63 @@ class MapHome extends React.Component {
       marginBottom: 1,
     };
   }
-    componentDidMount = () => {
-      this.handleUserLocation();
-      setTimeout(() => this.setState({ marginBottom: 0 }), 100);
-    };
+  componentDidMount = () => {
+    this.handleUserLocation();
+    setTimeout(() => this.setState({ marginBottom: 0 }), 100);
+  };
 
-    handleUserLocation = () => {
-      navigator.geolocation.getCurrentPosition(
-        (pos) => {
-          // alert (JSON.stringify(pos))
-          this.map.animateToRegion({
+  handleUserLocation = () => {
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        // alert (JSON.stringify(pos))
+        this.map.animateToRegion({
+          ...this.state.region,
+          latitude: pos.coords.latitude,
+          longitude: pos.coords.longitude,
+        });
+
+        this.setState({
+          initialRegion: {
             ...this.state.region,
             latitude: pos.coords.latitude,
             longitude: pos.coords.longitude,
-          });
-
-          this.setState({         
-            initialRegion:{
-            ...this.state.region,
-            latitude : pos.coords.latitude,
-            longitude : pos.coords.longitude
-          }, locationChosen: true });
-        },
-        (err) => {
-          console.log(err);
-          alert("Something Went Wrong!");
-        }
-      );
-    };
+          },
+          locationChosen: true,
+        });
+      },
+      (err) => {
+        console.log(err);
+        alert("Something Went Wrong!");
+      }
+    );
+  };
 
   render() {
     return (
       <View style={{ flex: 1 }}>
         <MapView
-          style={{ flex: 1, marginBottom : this.state.marginBottom }}
+          style={{ flex: 1, marginBottom: this.state.marginBottom }}
           showsUserLocation={true}
           showsMyLocationButton={true}
           rotateEnabled={true}
           initialRegion={this.state.region}
-          ref ={(map) => this.map = map}
+          ref={(map) => (this.map = map)}
         >
           <DriverHome
             driver={{
               uid: "hello",
               location: {
-                latitude: 27.7350,
-                longitude: 85.32,
+                latitude: 27.733416,
+                longitude: 85.30808,
+              },
+            }}
+          />
+          <DriverHome
+            driver={{
+              uid: "hello",
+              location: {
+                latitude: 27.735248,
+                longitude:  85.319905,
               },
             }}
           />
@@ -110,5 +121,3 @@ export default MapHome;
 //   this.handleUserLocation();
 //   setTimeout(() => this.setState({ marginBottom: 0 }), 400);
 // }
-
-

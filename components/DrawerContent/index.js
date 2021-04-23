@@ -24,7 +24,7 @@ export function DrawerContent(props) {
           <View style={styles.userInfoSection}>
             <View style={{ flexDirection: "row", marginTop: 15 }}>
               <View style={{flexDirection: "column" }}>
-              {userData.map((item) => <Title style={styles.title}>Hi  {item.fname} {item.lname}!</Title>)} 
+              {userData.map((item) => <Title key={item.user_id} style={styles.title}>Hi  {item.fname} {item.lname}!</Title>)} 
               </View>
             </View>
           </View>
