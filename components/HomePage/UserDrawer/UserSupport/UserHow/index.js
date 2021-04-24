@@ -26,7 +26,7 @@ export default function UserHow({ navigation }) {
                 Ans: You can already see the bus with real time location.
               </Text>
               <Image
-                source={require("../../../../../assets/bus.jpg")}
+                source={require("../../../../../assets/home.png")}
                 style={styles.aimage}
               />
               <Text style={styles.answer}>Fig: Home Page</Text>

@@ -69,15 +69,7 @@ class MapHome extends React.Component {
               },
             }}
           />
-          <DriverHome
-            driver={{
-              uid: "hello",
-              location: {
-                latitude: 27.735248,
-                longitude:  85.319905,
-              },
-            }}
-          />
+          
         </MapView>
       </View>
     );
