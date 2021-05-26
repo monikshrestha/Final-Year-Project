@@ -20,30 +20,36 @@ Notifications.setNotificationHandler({
 const Drawer = createDrawerNavigator();
 
 export default function App() {
-  const [expoPushToken, setExpoPushToken] = useState('');
-  const [notification, setNotification] = useState(false);
-  const notificationListener = useRef();
-  const responseListener = useRef();
-
+  // const notificationListener = useRef();
+  // const responseListener = useRef();
+  
+  // const [notification, setNotification] = useState(false);
   useEffect(() => {
-    registerForPushNotificationsAsync().then(token => setExpoPushToken(token));
+    registerForPushNotification().then(token=>console.log(token));
+    // notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
+    //   console.log(notification);
+    // });
+    // responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
+    //   console.log(response);
+    // });
+    // return () => {
+    //   cleanup
+    // }
+  }, [])
 
-    // This listener is fired whenever a notification is received while the app is foregrounded
-    notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
-      setNotification(notification);
-    });
-
-    // This listener is fired whenever a user taps on or interacts with a notification (works when app is foregrounded, backgrounded, or killed)
-    responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
-      console.log(response);
-    });
-
-    return () => {
-      Notifications.removeNotificationSubscription(notificationListener.current);
-      Notifications.removeNotificationSubscription(responseListener.current);
-    };
-  }, []);
-
+  async function registerForPushNotification(){
+    const {status} = await Permissions.getAsync(Permissions.NOTIFICATIONS);
+    if (status != 'granted') {
+      const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
+      // finalStatus = status;
+    }
+    if (status !== 'granted') {
+      alert('Failed to get push token for push notification!');
+      return;
+    }
+    token = (await Notifications.getExpoPushTokenAsync()).data;
+    return token
+  }
 
   return (
     <Provider store={store}>
@@ -63,8 +69,3 @@ const styles = StyleSheet.create({
   },
 });
 
-async function registerForPushNotificationsAsync() {
-
-  token = (await Notifications.getExpoPushTokenAsync()).data;
-  return token
-}
