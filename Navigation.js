@@ -16,19 +16,19 @@ import RootStackScreen from "./components/RootStackScreen";
 const Drawer = createDrawerNavigator();
 
 export default function Navigation() {
-  const Token = useSelector((state) => state.login.authToken);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(authToken);
-    dispatch(user);
-  }, []);
+  // const Token = useSelector((state) => state.login.authToken);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(authToken);
+  //   dispatch(user);
+  // }, []);
   return (
     <NavigationContainer>
       <Drawer.Navigator
-        initialRouteName={Token?.length>0?"Home":"Login"}
+        // initialRouteName={Token?.length>0?"Home":"Login"}
         drawerContent={(props) => <DrawerContent {...props} />}
       >
-        <Drawer.Screen name="Login" component={RootStackScreen} />
+        {/* <Drawer.Screen name="Login" component={RootStackScreen} /> */}
         <Drawer.Screen name="Home" component={ContentHome} />
         <Drawer.Screen name="Profile" component={ContentProfile} />
         <Drawer.Screen name="Route" component={ContentRoute} />

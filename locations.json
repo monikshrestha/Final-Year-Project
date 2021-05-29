@@ -1,290 +1,261 @@
 [
-    {
-        "name": "Gongabu Buspark",
-        "address": "New Buspark, Gongabu, Kathmandu",
-        "coords":{
-            "latitude": 27.733778,
-            "longitude": 85.307834
-        }
-    },    {
-        "name": "BG Mall",
-        "address": "BG Mall, Buspark, Gongabu, Kathmandu",
-        "coords":{
-            "latitude": 27.734812,
-            "longitude": 85.310390
-        }
-
-    },
-   
-    {
-        "name": "Gongabu Bus-stop",
-        "address": "Gongabu, Kathmandu",
-        "coords":{
-            "latitude": 27.734904,
-            "longitude": 85.314489
-        }
-
-    },
-
-    {
-        "name": "Samakhusi Bus-stop",
-        "address": "Samakhusi, Kathmandu",
-        "coords":{
-            "latitude": 27.735107,
-            "longitude": 85.317718 
-        }
-
-    },
-
-    {
-        "name": "Taalim Kendra Bus-stop",
-        "address": "Basudhara, Kathmandu",
-        "coords":{
-            "latitude": 27.736130,
-            "longitude": 85.322123
-        }
-
-    },
-
-    {
-        "name": "Basundhara Chawki Bus-stop",
-        "address": "Basudhara, Chakrapath, Kathmandu",
-        "coords":{
-            "latitude": 27.738073,
-            "longitude": 85.325097
-        }
-
-    },
-
-    {
-        "name": "Basundhara Bus-stop",
-        "address": "Basudhara, Chakrapath,  Kathmandu",
-        "coords":{
-            "latitude": 27.742069,
-            "longitude": 85.332103
-        }
-
-    },
-
-    {
-        "name": "Narayan Gopal Chowk Bus-stop ",
-        "address": "Maharajgunj RD, Kathmandu",
-        "coords":{
-            "latitude": 27.739839,
-            "longitude": 85.337629
-        }
-
-    },
-
-    {
-        "name": "Chppal Karkhana Bus-stop",
-        "address": "Chakrapath, Kathmandu",
-        "coords":{
-            "latitude": 27.734781,
-            "longitude": 85.342454
-        }
-
-    },
-
-    {
-        "name": "Dhumbarahi Bus-stop",
-        "address": "Chakrapath, Kathmandu",
-        "coords":{
-            "latitude": 27.731755,
-            "longitude": 85.344294
-        }
-
-    },
-
-    {
-        "name": "Sukedhara Bus-stop",
-        "address": "Chakrapath, Kathmandu",
-        "coords":{
-            "latitude": 27.727921,
-            "longitude": 85.345770
-        }
-
-    },
-
-    {
-        "name": "Gopi Krishna Hall Bus-stop",
-        "address": "Chakrapath, Kathmandu",
-        "coords":{
-            "latitude": 27.721773,
-            "longitude": 85.345598
-        }
-
-    },
-
-    {
-        "name": "Chabil Bus-stop",
-        "address": "Chabil, Kathmandu",
-        "coords":{
-            "latitude": 27.717493,
-            "longitude": 85.346712
-        }
-
-    },
-
-    {
-        "name": "Jaya Bageswori Bus-stop",
-        "address": "Jaya Bageswori, Kathmandu",
-        "coords":{
-            "latitude": 27.710628,
-            "longitude": 85.344360
-        }
-
-    },
-
-    {
-        "name": "Gaushala Bus-stop",
-        "address": "Gaushala, Kathmandu",
-        "coords":{
-            "latitude": 27.707491,
-            "longitude": 85.344042
-        }
-
-    },
-
-    {
-        "name": "Kathmandu Airport Bus-stop",
-        "address": "Kathmandu Airport, Kathmandu",
-        "coords":{
-            "latitude": 27.700588,
-            "longitude": 85.353803
-        }
-
-    },
-
-    {
-        "name": "Sinamangal Bus-stop",
-        "address": "Sinamangal, Kathmandu",
-        "coords":{
-            "latitude": 27.695143,
-            "longitude": 85.355009
-        }
-
-    },
-
-    {
-        "name": "Tinkune Bus-stop",
-        "address": "Tinkune, Kathmandu",
-        "coords":{
-            "latitude": 27.685867,
-            "longitude": 85.346195
-        }
-
-    },
-
-    {
-        "name": "New Baneshwor Bus-stop",
-        "address": "New Baneshwor, Kathmandu",
-        "coords":{
-            "latitude": 27.688103,
-            "longitude": 85.336266
-        }
-
-    },
-
-    {
-        "name": "Babar Mahal Bus-stop",
-        "address": "Babar Mahal, Kathmandu",
-        "coords":{
-            "latitude": 27.692073,
-            "longitude": 85.324488
-        }
-
-    },
-
-    {
-        "name": "Maitighar Bus-stop",
-        "address": "Maitighar, Kathmandu",
-        "coords":{
-            "latitude": 27.693684,
-            "longitude": 85.321119
-        }
-
-    },
-
-    {
-        "name": "Sahidgate Bus-stop",
-        "address": "Sahidgate, Kathmandu",
-        "coords":{
-            "latitude": 27.699691,
-            "longitude": 85.314023
-        }
-
-    },
-
-    {
-        "name": "New Road Bus-stop",
-        "address": "New Road, Kathmandu",
-        "coords":{
-            "latitude": 27.702582,
-            "longitude": 85.313507
-        }
-
-    },
-
-    {
-        "name": "Jamal Bus-stop",
-        "address": "Jamal, Kathmandu",
-        "coords":{
-            "latitude": 27.709236,
-            "longitude": 85.314566
-        }
-
-    },
-
-    {
-        "name": "Lainchaur Bus-stop",
-        "address": "Lainchaur, Kathmandu",
-        "coords":{
-            "latitude": 27.717122,
-            "longitude": 85.315127
-        }
-
-    },
-
-    {
-        "name": "Thamel Bus-stop",
-        "address": "Thamel, Kathmandu",
-        "coords":{
-            "latitude": 27.718155,
-            "longitude": 85.311971
-        }
-
-    },
-
-    {
-        "name": "Sorakhutte Bus-stop",
-        "address": "Sorakhutte, Kathmandu",
-        "coords":{
-            "latitude": 27.719304,
-            "longitude": 85.309419
-        }
-
-    },
-
-    {
-        "name": "Balaju Bus-stop",
-        "address": "Balaju, Kathmandu",
-        "coords":{
-            "latitude": 27.727389,
-            "longitude": 85.304744
-        }
-
-    },
-
-    {
-        "name": "Machha Pokhari Bus-stop",
-        "address": "Machha Pokhari, Kathmandu",
-        "coords":{
-            "latitude": 27.735272,
-            "longitude": 85.305857
-        }
-
+  {
+    "name": "Gongabu Buspark",
+    "address": "New Buspark, Gongabu, Kathmandu",
+    "coords": {
+      "latitude": 27.733778,
+      "longitude": 85.307834
     }
+  },
+  {
+    "name": "BG Mall",
+    "address": "BG Mall, Buspark, Gongabu, Kathmandu",
+    "coords": {
+      "latitude": 27.734812,
+      "longitude": 85.31039
+    }
+  },
 
+  {
+    "name": "Gongabu Bus-stop",
+    "address": "Gongabu, Kathmandu",
+    "coords": {
+      "latitude": 27.734904,
+      "longitude": 85.314489
+    }
+  },
 
+  {
+    "name": "Samakhusi Bus-stop",
+    "address": "Samakhusi, Kathmandu",
+    "coords": {
+      "latitude": 27.735107,
+      "longitude": 85.317718
+    }
+  },
+
+  {
+    "name": "Taalim Kendra Bus-stop",
+    "address": "Basudhara, Kathmandu",
+    "coords": {
+      "latitude": 27.73613,
+      "longitude": 85.322123
+    }
+  },
+
+  {
+    "name": "Basundhara Chawki Bus-stop",
+    "address": "Basudhara, Chakrapath, Kathmandu",
+    "coords": {
+      "latitude": 27.738073,
+      "longitude": 85.325097
+    }
+  },
+
+  {
+    "name": "Basundhara Bus-stop",
+    "address": "Basudhara, Chakrapath,  Kathmandu",
+    "coords": {
+      "latitude": 27.742069,
+      "longitude": 85.332103
+    }
+  },
+
+  {
+    "name": "Narayan Gopal Chowk Bus-stop ",
+    "address": "Maharajgunj RD, Kathmandu",
+    "coords": {
+      "latitude": 27.739839,
+      "longitude": 85.337629
+    }
+  },
+
+  {
+    "name": "Chppal Karkhana Bus-stop",
+    "address": "Chakrapath, Kathmandu",
+    "coords": {
+      "latitude": 27.734781,
+      "longitude": 85.342454
+    }
+  },
+
+  {
+    "name": "Dhumbarahi Bus-stop",
+    "address": "Chakrapath, Kathmandu",
+    "coords": {
+      "latitude": 27.731755,
+      "longitude": 85.344294
+    }
+  },
+
+  {
+    "name": "Sukedhara Bus-stop",
+    "address": "Chakrapath, Kathmandu",
+    "coords": {
+      "latitude": 27.727921,
+      "longitude": 85.34577
+    }
+  },
+
+  {
+    "name": "Gopi Krishna Hall Bus-stop",
+    "address": "Chakrapath, Kathmandu",
+    "coords": {
+      "latitude": 27.721773,
+      "longitude": 85.345598
+    }
+  },
+
+  {
+    "name": "Chabil Bus-stop",
+    "address": "Chabil, Kathmandu",
+    "coords": {
+      "latitude": 27.717493,
+      "longitude": 85.346712
+    }
+  },
+
+  {
+    "name": "Jaya Bageswori Bus-stop",
+    "address": "Jaya Bageswori, Kathmandu",
+    "coords": {
+      "latitude": 27.710628,
+      "longitude": 85.34436
+    }
+  },
+
+  {
+    "name": "Gaushala Bus-stop",
+    "address": "Gaushala, Kathmandu",
+    "coords": {
+      "latitude": 27.707491,
+      "longitude": 85.344042
+    }
+  },
+
+  {
+    "name": "Kathmandu Airport Bus-stop",
+    "address": "Kathmandu Airport, Kathmandu",
+    "coords": {
+      "latitude": 27.700588,
+      "longitude": 85.353803
+    }
+  },
+
+  {
+    "name": "Sinamangal Bus-stop",
+    "address": "Sinamangal, Kathmandu",
+    "coords": {
+      "latitude": 27.695143,
+      "longitude": 85.355009
+    }
+  },
+
+  {
+    "name": "Tinkune Bus-stop",
+    "address": "Tinkune, Kathmandu",
+    "coords": {
+      "latitude": 27.685867,
+      "longitude": 85.346195
+    }
+  },
+
+  {
+    "name": "New Baneshwor Bus-stop",
+    "address": "New Baneshwor, Kathmandu",
+    "coords": {
+      "latitude": 27.688103,
+      "longitude": 85.336266
+    }
+  },
+
+  {
+    "name": "Babar Mahal Bus-stop",
+    "address": "Babar Mahal, Kathmandu",
+    "coords": {
+      "latitude": 27.692073,
+      "longitude": 85.324488
+    }
+  },
+
+  {
+    "name": "Maitighar Bus-stop",
+    "address": "Maitighar, Kathmandu",
+    "coords": {
+      "latitude": 27.693684,
+      "longitude": 85.321119
+    }
+  },
+
+  {
+    "name": "Sahidgate Bus-stop",
+    "address": "Sahidgate, Kathmandu",
+    "coords": {
+      "latitude": 27.699691,
+      "longitude": 85.314023
+    }
+  },
+
+  {
+    "name": "New Road Bus-stop",
+    "address": "New Road, Kathmandu",
+    "coords": {
+      "latitude": 27.702582,
+      "longitude": 85.313507
+    }
+  },
+
+  {
+    "name": "Jamal Bus-stop",
+    "address": "Jamal, Kathmandu",
+    "coords": {
+      "latitude": 27.709236,
+      "longitude": 85.314566
+    }
+  },
+
+  {
+    "name": "Lainchaur Bus-stop",
+    "address": "Lainchaur, Kathmandu",
+    "coords": {
+      "latitude": 27.717122,
+      "longitude": 85.315127
+    }
+  },
+
+  {
+    "name": "Thamel Bus-stop",
+    "address": "Thamel, Kathmandu",
+    "coords": {
+      "latitude": 27.718155,
+      "longitude": 85.311971
+    }
+  },
+
+  {
+    "name": "Sorakhutte Bus-stop",
+    "address": "Sorakhutte, Kathmandu",
+    "coords": {
+      "latitude": 27.719304,
+      "longitude": 85.309419
+    }
+  },
+
+  {
+    "name": "Balaju Bus-stop",
+    "address": "Balaju, Kathmandu",
+    "coords": {
+      "latitude": 27.727389,
+      "longitude": 85.304744
+    }
+  },
+
+  {
+    "name": "Machha Pokhari Bus-stop",
+    "address": "Machha Pokhari, Kathmandu",
+    "coords": {
+      "latitude": 27.735272,
+      "longitude": 85.305857
+    }
+  }
 ]
